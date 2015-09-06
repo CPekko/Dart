@@ -1,0 +1,146 @@
+@media screen and (max-width: 1200px){
+	#buttonPanel{
+		padding: 10px 5px;
+	}
+
+	#buttonPanel .btn{
+		padding: 6px 10px;
+	}
+
+	.board{
+		margin-left: -23px;
+	}
+}
+@media screen and (max-width: 1250px){
+	.play-header{
+		-webkit-transform: none;
+		-moz-transform: none;
+		-ms-transform: none;
+		-o-transform: none;
+		transform: none;
+		top: 45px;
+		left: 15px;
+		font-size: 25px;
+	}
+
+	.play-header > span{
+		display: none;
+	}
+}
+
+#buttonPanel .btn:focus{
+	outline: 0;
+}
+
+#buttonPanel .btn-danger:focus, .board > .btn-danger:focus{
+	background-color: #d9534f;
+	border-color: #d43f3a;
+}
+
+#buttonPanel .btn-primary:focus{
+	background-color: #428bca;
+	border-color: #357ebd;
+}
+
+#buttonPanel .btn-danger:hover, .board > .btn-danger:hover{
+	background-color: #d2322d;
+	border-color: #ac2925;
+}
+
+#buttonPanel .btn-primary:hover{
+	background-color: #3276b1;
+	border-color: #285e8e;
+}
+
+.fix-margin{
+	margin: 10px;
+}
+
+.play .panel > .panel-heading{
+	padding: 8px;
+	text-align: center;
+}
+
+.play .panel > .panel-body{
+	padding: 5px;
+}
+
+.play .game .panel > .panel-body{
+	padding: 15px;
+}
+
+.play a:hover{
+	cursor: pointer;
+}
+
+.play .panel.disabled{
+	display: none !important;
+}
+
+.play .board.disabled a{
+	pointer-events: none;
+}
+
+.game tr th:first-child, .game tr td:first-child{
+	border-right: 1px solid rgb(221,221,221);
+}
+
+@media screen and (max-width: 1200px){
+	.split-small{
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+
+	}
+
+	.split-small > .panel{
+		width: 50%;
+	}
+
+	.split-small > .panel:first-child{
+		margin-right: 15px;
+	}
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td{
+	font-size: 14px;
+}
+
+#stats .split-small .table>tbody>tr>td{
+	padding: 8px 15px;
+}
+
+.table.game{
+	margin-bottom: 0;
+}
+
+.highcharts-container{
+	margin: 25px auto;
+}
+
+h2.player-name, h3.player-name{
+	vertical-align: bottom;
+	
+}
+
+td.player-name, td.player-name + td{
+	vertical-align: middle!important;
+}
+
+.player-name img{
+	max-height: 35px;
+	margin-right: 5px;
+}
+
+table.finished tr th:not(:last-child){
+	cursor: pointer;
+}
+
+.highcharts-container {
+  position: inherit !important;
+}
+.highcharts-tooltip {
+  z-index: 6;
+}
