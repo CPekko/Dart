@@ -1,5 +1,5 @@
 <?php
-require_once('partials/funcs.php');
+require_once('funcs.php');
 if (isset($_GET['action'])){
 	$action = $_GET['action'];
 
