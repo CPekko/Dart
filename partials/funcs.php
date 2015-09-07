@@ -394,10 +394,10 @@ function getAccuracyStats($playerId){
 //Get streak lengths stats
 function getStreakLength($playerId){
 	global $mysqli;
-	$min1 = 0;
+	$min2 = 1;
 	$query = "SELECT Streak, count(*) FROM Throws NATURAL JOIN Games WHERE PlayerID = ? GROUP BY Streak HAVING Streak > ? ORDER BY Streak ASC";
 	$stmt = $mysqli->prepare($query);
-	$stmt->bind_param("ii", $playerId, $min1);
+	$stmt->bind_param("ii", $playerId, $min2);
 	$stmt->execute();
 	$stmt->bind_result($streak, $count);
 	$streaks = array();

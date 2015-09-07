@@ -2,10 +2,10 @@
 var bestGames = {};
 $( "td[data-player-id]" ).each(function( index ) {
 	if (typeof bestGames[$( this ).data('player-id')] === 'undefined'){
-		bestGames[$( this ).data('player-id')] = { id: $( this ).attr('id'), score: $( this ).text()};
+		bestGames[$( this ).data('player-id')] = { id: $( this ).attr('id'), score: parseInt($( this ).text(),10)};
 	}
-	else if (bestGames[$( this ).data('player-id')].score >= $( this ).text()){
-		bestGames[$( this ).data('player-id')] = { id: $( this ).attr('id'), score: $( this ).text()};
+	else if (bestGames[$( this ).data('player-id')].score >= parseInt($( this ).text(),10)) {
+		bestGames[$( this ).data('player-id')] = { id: $( this ).attr('id'), score: parseInt($( this ).text(),10)};
 	}
 });
 for (var game in bestGames) {
