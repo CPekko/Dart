@@ -14,6 +14,13 @@ for (var game in bestGames) {
   }
 }
 
+$(".record-box").change(function() {
+    if(this.checked)
+        $('.table.finished').addClass('records-only');
+    else
+		$('.table.finished').removeClass('records-only');
+});
+
 //Just flip this sometimes to change sort order
 var bool = false;
 
@@ -27,8 +34,8 @@ function sortTable(col){
     //Sort by name
     if(col===1){
 		rows.sort(function(row1, row2){
-			if (bool) return ($(row1).find(".name").text() > $(row2).find(".name").text());
-			else return ($(row2).find(".name").text() > $(row1).find(".name").text());
+			if (bool) return (parseInt($(row1).find(".text-center").data('player-id'),10) - parseInt($(row2).find(".text-center").data('player-id'),10));
+			else return (parseInt($(row2).find(".text-center").data('player-id'),10) - parseInt($(row1).find(".text-center").data('player-id'),10));
 		});
 	}
 
@@ -51,8 +58,8 @@ function sortTable(col){
     //Sort by number of throws
     else{
 		rows.sort(function(row1, row2){
-			if (bool) return ($(row1).find(".text-center").text() - $(row2).find(".text-center").text());
-			else return ($(row2).find(".text-center").text()- $(row1).find(".text-center").text());
+			if (bool) return (parseInt($(row1).find(".text-center").text(),10) - parseInt($(row2).find(".text-center").text(),10));
+			else return (parseInt($(row2).find(".text-center").text(),10) - parseInt($(row1).find(".text-center").text(),10));
 		});
     }
     

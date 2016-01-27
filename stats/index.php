@@ -14,6 +14,8 @@ if (isset($_GET['id'])){
     $worstGame = getWorstGame($player);
     $averageGame = getAverageGame($player);
     $averageLast10 = getAverageLast10($player);
+    $hitRatio = getHitRatio($player->getPlayerId());
+    $dartboard = array(19,7,16,8,11,14,9,12,5,20,1,18,4,13,6,10,15,2,17,3);
     ?>
     <div class="container body-content">
         <section>
@@ -69,7 +71,7 @@ if (isset($_GET['id'])){
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <?echo $player->getName()?>'s Best Game
-                            <span class="pull-right">Finished <?echo date('d.m.Y k\l. H:m',strtotime($bestGame->getTimeFinished()));?></span>
+                            <span class="pull-right">Finished <?echo date('d.m.Y k\l. H:i',strtotime($bestGame->getTimeFinished()));?></span>
                         </div>
                         <div class="panel-body">
                             <table class="table game" id="bestGame">
@@ -100,7 +102,41 @@ if (isset($_GET['id'])){
                     <div class="panel panel-default">
                         <div class="panel-heading">Per Target Hit Ratio</div>
                         <div class="panel-body">
-                            <highchart id="hitRatioChart"></highchart>
+                            <div class="board">
+                                <a style="position: absolute; left: 0; right:0; top:0; bottom:0;" > </a>
+                                <div class="ring double">
+                                <? foreach ($dartboard as $i => $j){ ?>
+                                    <a class="piece piece-<?echo $i+1?>" ></a>
+                                <?}?>
+                                </div>
+                                <div class="ring outer">
+                                <? foreach ($dartboard as $i => $j){ ?>
+                                    <a class="piece piece-<?echo $i+1?>" ></a>
+                                <?}?>
+                                </div>
+                                <div class="ring triple">
+                                <? foreach ($dartboard as $i => $j){ ?>
+                                    <a class="piece piece-<?echo $i+1?>" ></a>
+                                <?}?>
+                                </div>
+                                <div class="ring inner">
+                                <? foreach ($dartboard as $i => $j){ ?>
+                                    <a class="piece piece-<?echo $i+1?>" ></a>
+                                <?}?>
+                                </div>
+                                <div class="numbers">
+                                <? foreach ($dartboard as $i => $j){ ?>
+                                     <a class="number number-<?echo $i+1?>" ><?echo $j?></a>
+                                <?}?>
+                                </div>
+                                <div class="stats">
+                                <? foreach ($hitRatio as $j){ ?>
+                                     <a class="stat stat-<?echo $j[0]?>" ><?echo round($j[1])?>%</a>
+                                <?}?>
+                                </div>
+                                <a class="bull ring" ></a>
+                                <a class="red-bull ring" ></a>
+                            </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
@@ -119,6 +155,12 @@ if (isset($_GET['id'])){
                         <div class="panel-heading">Total Hits per Target</div>
                         <div class="panel-body">
                             <highchart id="hitTargetChart"></highchart>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Per Target Hit Ratio Column Diagram</div>
+                        <div class="panel-body">
+                            <highchart id="hitRatioChart"></highchart>
                         </div>
                     </div>
                 </div>

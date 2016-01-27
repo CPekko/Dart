@@ -15,7 +15,7 @@ if(isset($_GET['id'])){
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Game finished in <b><?echo sizeof($game->getThrows())?></b> throws
-                            <span class="pull-right">Finished <?echo date('d.m.Y k\l. H:m',strtotime($game->getTimeFinished()));?></span>
+                            <span class="pull-right">Finished <?echo date('d.m.Y k\l. H:i',strtotime($game->getTimeFinished()));?></span>
                         </div>
                         <div class="panel-body">
                             <table class="table game">

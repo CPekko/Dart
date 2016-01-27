@@ -53,6 +53,7 @@ function getPlayer($playerId){
 function createPlayer($player){
 	global $mysqli;
 	$name = $player->getName();
+	if ($name == "") $name = "John Doe";
 	$active = ($player->isActive() ?  1 :  0);
 	$query = "INSERT INTO Players(Name, Active) VALUES (?,?)";
 	$stmt = $mysqli->prepare($query);

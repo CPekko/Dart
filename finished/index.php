@@ -15,6 +15,7 @@ $totalThrowCount = getTotalThrowCount();
 	    </style>
 		
 	    <h2>Finished Games</h2>
+	    <div class="records-wrapper"><label for="records">Show records only</label><input type="checkbox" name="records" class="record-box"></div>
 	    <p style="font-style: italic">Total of <?echo number_format(sizeof($finishedGames), 0, ",", " ")?> games played and <?echo number_format($totalThrowCount, 0, ",", " ")?> darts thrown. Click on column to sort.</p>
 
 	    <table class="table finished">

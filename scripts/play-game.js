@@ -76,7 +76,6 @@ function undo(){
 }
 
 function saveRound(id, element){
-	console.log(element);
 	data = [];
 	for(var i = 0; i<dartThrows.length; i++){
 		data.push({'target': nextTargetList[i], 'hit': dartThrows[i], 'streak': streakList[i+1]});

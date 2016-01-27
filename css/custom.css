@@ -56,6 +56,19 @@
 	margin: 10px;
 }
 
+section {
+    position: relative;
+}
+.records-wrapper{
+    position: absolute;
+    top: 30px;
+    right: 0;
+}
+
+.records-wrapper label{
+    margin-right: 5px;
+}
+
 .play .panel > .panel-heading{
 	padding: 8px;
 	text-align: center;
@@ -116,6 +129,10 @@
 	margin-bottom: 0;
 }
 
+.table.finished.records-only tbody tr:not(.best-game){
+    display: none;
+}
+
 .highcharts-container{
 	margin: 25px auto;
 }
@@ -143,4 +160,190 @@ table.finished tr th:not(:last-child){
 }
 .highcharts-tooltip {
   z-index: 6;
+}
+
+.panel-body .board{
+	margin: 0 auto;
+}
+
+.panel-body .board .number:hover{
+	color: white;
+}
+
+.stat {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 21px;
+    color: white;
+    -webkit-transform-origin: left top;
+    -moz-transform-origin: left top;
+    -ms-transform-origin: left top;
+    -o-transform-origin: left top;
+    transform-origin: left top;
+    display: block;
+    text-align: center;
+}
+.stat:hover {
+    text-decoration: none;
+}
+.stat-3, .stat-3:hover {
+    -webkit-transform: rotate(360deg) translate(-38%, 205px);
+    -moz-transform: rotate(360deg) translate(-38%, 205px);
+    -ms-transform: rotate(360deg) translate(-38%, 205px);
+    -o-transform: rotate(360deg) translate(-38%, 205px);
+    transform: rotate(360deg) translate(-38%, 205px);
+    color: #E7E4D6;
+}
+.stat-17, .stat-17:hover {
+    -webkit-transform: rotate(342deg) translate(-38%, 205px);
+    -moz-transform: rotate(342deg) translate(-38%, 205px);
+    -ms-transform: rotate(342deg) translate(-38%, 205px);
+    -o-transform: rotate(342deg) translate(-38%, 205px);
+    transform: rotate(342deg) translate(-38%, 205px);
+    color: black;
+}
+.stat-2, .stat-2:hover {
+    -webkit-transform: rotate(324deg) translate(-38%, 205px);
+    -moz-transform: rotate(324deg) translate(-38%, 205px);
+    -ms-transform: rotate(324deg) translate(-38%, 205px);
+    -o-transform: rotate(324deg) translate(-38%, 205px);
+    transform: rotate(324deg) translate(-38%, 205px);
+    color: #E7E4D6;
+}
+.stat-15, .stat-15:hover {
+    -webkit-transform: rotate(306deg) translate(-38%, 205px);
+    -moz-transform: rotate(306deg) translate(-38%, 205px);
+    -ms-transform: rotate(306deg) translate(-38%, 205px);
+    -o-transform: rotate(306deg) translate(-38%, 205px);
+    transform: rotate(306deg) translate(-38%, 205px);
+    color: black;
+}
+.stat-10, .stat-10:hover {
+    -webkit-transform: rotate(288deg) translate(-50%, 205px);
+    -moz-transform: rotate(288deg) translate(-50%, 205px);
+    -ms-transform: rotate(288deg) translate(-50%, 205px);
+    -o-transform: rotate(288deg) translate(-50%, 205px);
+    transform: rotate(288deg) translate(-50%, 205px);
+    color: #E7E4D6;
+}
+.stat-6, .stat-6:hover {
+    -webkit-transform: rotate(90deg) translate(-38%, -235px);
+    -moz-transform: rotate(90deg) translate(-38%, -235px);
+    -ms-transform: rotate(90deg) translate(-38%, -235px);
+    -o-transform: rotate(90deg) translate(-38%, -235px);
+    transform: rotate(90deg) translate(-38%, -235px);
+    color: black;
+}
+.stat-13, .stat-13:hover {
+    -webkit-transform: rotate(72deg) translate(-38%, -235px);
+    -moz-transform: rotate(72deg) translate(-38%, -235px);
+    -ms-transform: rotate(72deg) translate(-38%, -235px);
+    -o-transform: rotate(72deg) translate(-38%, -235px);
+    transform: rotate(72deg) translate(-38%, -235px);
+    color: #E7E4D6;
+}
+.stat-4, .stat-4:hover {
+    -webkit-transform: rotate(54deg) translate(-38%, -235px);
+    -moz-transform: rotate(54deg) translate(-38%, -235px);
+    -ms-transform: rotate(54deg) translate(-38%, -235px);
+    -o-transform: rotate(54deg) translate(-38%, -235px);
+    transform: rotate(54deg) translate(-38%, -235px);
+    color: black;
+}
+.stat-18, .stat-18:hover {
+    -webkit-transform: rotate(36deg) translate(-38%, -235px);
+    -moz-transform: rotate(36deg) translate(-38%, -235px);
+    -ms-transform: rotate(36deg) translate(-38%, -235px);
+    -o-transform: rotate(36deg) translate(-38%, -235px);
+    transform: rotate(36deg) translate(-38%, -235px);
+    color: #E7E4D6;
+}
+.stat-1, .stat-1:hover {
+    -webkit-transform: rotate(18deg) translate(-38%, -235px);
+    -moz-transform: rotate(18deg) translate(-38%, -235px);
+    -ms-transform: rotate(18deg) translate(-38%, -235px);
+    -o-transform: rotate(18deg) translate(-38%, -235px);
+    transform: rotate(18deg) translate(-38%, -235px);
+    color: black;
+}
+.stat-20, .stat-20:hover {
+    -webkit-transform: rotate(0deg) translate(-38%, -235px);
+    -moz-transform: rotate(0deg) translate(-38%, -235px);
+    -ms-transform: rotate(0deg) translate(-38%, -235px);
+    -o-transform: rotate(0deg) translate(-38%, -235px);
+    transform: rotate(0deg) translate(-38%, -235px);
+    color: #E7E4D6;
+}
+.stat-5, .stat-5:hover {
+    -webkit-transform: rotate(-18deg) translate(-50%, -235px);
+    -moz-transform: rotate(-18deg) translate(-50%, -235px);
+    -ms-transform: rotate(-18deg) translate(-50%, -235px);
+    -o-transform: rotate(-18deg) translate(-50%, -235px);
+    transform: rotate(-18deg) translate(-50%, -235px);
+    color: black;
+}
+.stat-12, .stat-12:hover {
+    -webkit-transform: rotate(-36deg) translate(-50%, -235px);
+    -moz-transform: rotate(-36deg) translate(-50%, -235px);
+    -ms-transform: rotate(-36deg) translate(-50%, -235px);
+    -o-transform: rotate(-36deg) translate(-50%, -235px);
+    transform: rotate(-36deg) translate(-50%, -235px);
+    color: #E7E4D6;
+}
+.stat-9, .stat-9:hover {
+    -webkit-transform: rotate(-54deg) translate(-50%, -235px);
+    -moz-transform: rotate(-54deg) translate(-50%, -235px);
+    -ms-transform: rotate(-54deg) translate(-50%, -235px);
+    -o-transform: rotate(-54deg) translate(-50%, -235px);
+    transform: rotate(-54deg) translate(-50%, -235px);
+    color: black;
+}
+.stat-14, .stat-14:hover {
+    -webkit-transform: rotate(-72deg) translate(-50%, -235px);
+    -moz-transform: rotate(-72deg) translate(-50%, -235px);
+    -ms-transform: rotate(-72deg) translate(-50%, -235px);
+    -o-transform: rotate(-72deg) translate(-50%, -235px);
+    transform: rotate(-72deg) translate(-50%, -235px);
+    color: #E7E4D6;
+}
+.stat-11, .stat-11:hover {
+    -webkit-transform: rotate(-90deg) translate(-50%, -235px);
+    -moz-transform: rotate(-90deg) translate(-50%, -235px);
+    -ms-transform: rotate(-90deg) translate(-50%, -235px);
+    -o-transform: rotate(-90deg) translate(-50%, -235px);
+    transform: rotate(-90deg) translate(-50%, -235px);
+    color: black;
+}
+.stat-8, .stat-8:hover {
+    -webkit-transform: rotate(72deg) translate(-38%, 205px);
+    -moz-transform: rotate(72deg) translate(-38%, 205px);
+    -ms-transform: rotate(72deg) translate(-38%, 205px);
+    -o-transform: rotate(72deg) translate(-38%, 205px);
+    transform: rotate(72deg) translate(-38%, 205px);
+    color: #E7E4D6;
+}
+.stat-16, .stat-16:hover {
+    -webkit-transform: rotate(54deg) translate(-38%, 205px);
+    -moz-transform: rotate(54deg) translate(-38%, 205px);
+    -ms-transform: rotate(54deg) translate(-38%, 205px);
+    -o-transform: rotate(54deg) translate(-38%, 205px);
+    transform: rotate(54deg) translate(-38%, 205px);;
+    color: black;
+}
+.stat-7, .stat-7:hover {
+    -webkit-transform: rotate(36deg) translate(-38%, 205px);
+    -moz-transform: rotate(36deg) translate(-38%, 205px);
+    -ms-transform: rotate(36deg) translate(-38%, 205px);
+    -o-transform: rotate(36deg) translate(-38%, 205px);
+    transform: rotate(36deg) translate(-38%, 205px);
+    color: #E7E4D6;
+}
+.stat-19, .stat-19:hover {
+    -webkit-transform: rotate(18deg) translate(-38%, 205px);
+    -moz-transform: rotate(18deg) translate(-38%, 205px);
+    -ms-transform: rotate(18deg) translate(-38%, 205px);
+    -o-transform: rotate(18deg) translate(-38%, 205px);
+    transform: rotate(18deg) translate(-38%, 205px);
+    color: black;
 }
