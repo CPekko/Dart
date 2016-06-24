@@ -19,22 +19,22 @@ $players = getAllPlayers();
                 </th>
                 <th></th>
             </tr>
-            <? foreach ($players as $player) {?>
-                <tr <? if (! $player->isActive()) echo 'class="inactive"' ?>>
+            <?php foreach ($players as $player) {?>
+                <tr <?php if (! $player->isActive()) echo 'class="inactive"' ?>>
                     <td class="player-name">
-                        <img src="<?echo $player->getImage()?>"/>
-                        <? echo $player->getName() ?>
+                        <img src="<?php echo $player->getImage()?>"/>
+                        <?php echo $player->getName() ?>
                     </td>
                     <td class="text-right">
-                        <a href="/eiriknf/dart/stats?id=<? echo $player->getPlayerId() ?>">Stats</a>
-                        <a href="edit?id=<? echo $player->getPlayerId() ?>">Edit</a>
-                        <!--<a href="/eiriknf/dart/players/delete?id=<? echo $player->getPlayerId() ?>">Delete</a>-->
+                        <a href="/eiriknf/dart/stats?id=<?php echo $player->getPlayerId() ?>">Stats</a>
+                        <a href="edit?id=<?php echo $player->getPlayerId() ?>">Edit</a>
+                        <!--<a href="/eiriknf/dart/players/delete?id=<?php echo $player->getPlayerId() ?>">Delete</a>-->
                     </td>
                 </tr>
-            <?}?>
+            <?php } ?>
 
         </table>
     </section>
 </div>
 
-<? include('../views/partials/footer.php');
+<?php include('../views/partials/footer.php');

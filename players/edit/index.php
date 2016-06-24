@@ -6,7 +6,7 @@ include('../../views/partials/head.php');
  ?>
  <div class="container body-content">
     <section>
-<? 
+<?php 
 if (isset($_GET['name']) && isset($_GET['active']) && isset($_GET['url'])){
     $name = $_GET['name'];
     $active = $_GET['active'];
@@ -29,20 +29,20 @@ if (isset($_GET['name']) && isset($_GET['active']) && isset($_GET['url'])){
 if(isset ($_GET['id'])){
     $player = getPlayer($_GET['id']);
 ?>
-        <h2>Edit <? echo $player->getName() ?></h2>
+        <h2>Edit <?php echo $player->getName() ?></h2>
         
         <form class="row">
             <div class="form-horizontal">
                 <div class="form-group">
                     <label class="control-label col-md-2" for="name">Name</label>
                     <div class="col-md-10">
-                        <input type="text" value="<? echo $player->getName(); ?>" class="form-control" id="name" data-player-id="<?echo $player->getPlayerId();?>" autofocus="autofocus" />
+                        <input type="text" value="<?php echo $player->getName(); ?>" class="form-control" id="name" data-player-id="<?php echo $player->getPlayerId();?>" autofocus="autofocus" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="name">Image URL</label>
                     <div class="col-md-10">
-                        <input type="text" value="<? echo $player->getImage(); ?>" class="form-control" id="url" />
+                        <input type="text" value="<?php echo $player->getImage(); ?>" class="form-control" id="url" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -60,7 +60,7 @@ if(isset ($_GET['id'])){
                 </div>
             </div>
         </form>
-<? } else { ?>
+<?php } else { ?>
         <h2>New player</h2>
         
         <form class="row">
@@ -92,9 +92,9 @@ if(isset ($_GET['id'])){
                 </div>
             </div>
         </form>
-<? } ?>
+<?php } ?>
     </section>
 </div>
 <script src="/eiriknf/dart/scripts/edit-player.js"></script>
 
-<? include('../../views/partials/footer.php'); ?>
+<?php include('../../views/partials/footer.php'); ?>

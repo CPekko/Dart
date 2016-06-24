@@ -11,12 +11,12 @@ $activeGames = array();
         <h2>Games</h2>
         
         <div class="row">
-            <?
+            <?php
             foreach(getActivePlayers() as $player){
                 ?>
                 <div class="col-sm-4">
-                    <h3 class="player-name"><img src="<?echo $player->getImage()?>"><? echo $player->getName() ?></h3>
-                    <?
+                    <h3 class="player-name"><img src="<?php echo $player->getImage()?>"><?php echo $player->getName() ?></h3>
+                    <?php
                         $activeGame = getActiveGame($player);
                         if(isset($activeGame)){
                             $activeGames[] = $activeGame;
@@ -24,27 +24,27 @@ $activeGames = array();
                     ?>
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title">Game Started <span data-time="<? echo $activeGame->getTimeStarted() ?>"></span></h4>
+                                <h4 class="panel-title">Game Started <span data-time="<?php echo $activeGame->getTimeStarted() ?>"></span></h4>
                             </div>
                             <div class="list-group">
-                                <div class="list-group-item"> <? echo sizeof($throws) ?> throws</div>
-                                <div class="list-group-item">Next target is <? echo $activeGame->getNextTarget() ?> </div>
+                                <div class="list-group-item"> <?php echo sizeof($throws) ?> throws</div>
+                                <div class="list-group-item">Next target is <?php echo $activeGame->getNextTarget() ?> </div>
                             </div>
                             <div class="panel-footer">
-                                <a class="btn btn-primary" onclick="playRound(<? echo $activeGame->getGameId() ?>,<? echo $player->getPlayerId() ?>)">Play Round</a>
-                                <a class="btn btn-danger" onclick="abandonGame(<? echo $activeGame->getGameId() ?>,<? echo $player->getPlayerId() ?>)">Abandon Game</a>
+                                <a class="btn btn-primary" onclick="playRound(<?php echo $activeGame->getGameId() ?>,<?php echo $player->getPlayerId() ?>)">Play Round</a>
+                                <a class="btn btn-danger" onclick="abandonGame(<?php echo $activeGame->getGameId() ?>,<?php echo $player->getPlayerId() ?>)">Abandon Game</a>
                             </div>
                         </div>
-                    <?
+                    <?php
                         } else {
                     ?>
                             <p>
-                                <button class="btn btn-primary" onclick="newGame(<? echo $player->getPlayerId() ?>)">New Game</button>
-                                <button class="btn btn-primary" onclick="window.location.href='/eiriknf/dart/stats/?id=<?echo $player->getPlayerId()?>'">View Stats</button>
+                                <button class="btn btn-primary" onclick="newGame(<?php echo $player->getPlayerId() ?>)">New Game</button>
+                                <button class="btn btn-primary" onclick="window.location.href='/eiriknf/dart/stats/?id=<?php echo $player->getPlayerId()?>'">View Stats</button>
                             </p>
-                    <?}?>
+                    <?php } ?>
                 </div>
-            <?
+            <?php
             }
             ?>
         </div>
@@ -58,18 +58,18 @@ $activeGames = array();
                             <thead>
                                 <tr>
                                     <th>Target</th>
-                                    <? for ($i = 1; $i <= 20; $i++){ ?>
-                                     <th class="text-center"><? echo $i ?></th>
-                                    <?}?>
+                                    <?php for ($i = 1; $i <= 20; $i++){ ?>
+                                     <th class="text-center"><?php echo $i ?></th>
+                                    <?php } ?>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?
+                                <?php
                                 foreach ($activeGames as $game) {
-                                    ?> <tr> <td> <? echo $game->getPlayer()->getName();
+                                    ?> <tr> <td> <?php echo $game->getPlayer()->getName();
                                     $throwList = getThrowList($game);
                                     for ($i = 1; $i <= 20; $i++){
-                                        ?> <td class="text-center" id="target-<? echo $i?>"><? echo $throwList[$i] . "</td>";
+                                        ?> <td class="text-center" id="target-<?php echo $i?>"><?php echo $throwList[$i] . "</td>";
                                     }
                                 }
                                 ?>
@@ -83,6 +83,6 @@ $activeGames = array();
     </section>
 </div>
 <script src="scripts/dashboard.js"></script>
-<?
+<?php
 include('views/partials/footer.php');
 ?>

@@ -19,27 +19,27 @@ if (isset($_GET['id'])){
     ?>
     <div class="container body-content">
         <section>
-            <h2>Stats for <? echo $player->getName()?></h2>
-            <div class="row" id="stats" data-user-name="<?echo $player->getName()?>" data-user-id="<?echo $playerId?>">
+            <h2>Stats for <?php echo $player->getName()?></h2>
+            <div class="row" id="stats" data-user-name="<?php echo $player->getName()?>" data-user-id="<?php echo $playerId?>">
                 <div class="col-lg-4 col-md-12 split-small">
                     <div class="panel panel-default">
                         <div class="panel-heading">Stats</div>
                         <table class="table">
                             <tr>
                                 <td>Games Played</td>
-                                <td><?echo $numberOfGames?> games</td>
+                                <td><?php echo $numberOfGames?> games</td>
                             </tr>
                             <tr>
                                 <td>Arrows Thrown</td>
-                                <td><?echo $arrowsThrown?> throws</td>
+                                <td><?php echo $arrowsThrown?> throws</td>
                             </tr>
                             <tr>
                                 <td>Longest Streak</td>
-                                <td><?echo $longestStreak?> throws</td>
+                                <td><?php echo $longestStreak?> throws</td>
                             </tr>
                             <tr>
                                 <td>Hit Ratio</td>
-                                <td><?echo round($targetHits/$arrowsThrown*100)?>%</td>
+                                <td><?php echo round($targetHits/$arrowsThrown*100)?>%</td>
                             </tr>
                         </table>
                     </div>
@@ -49,19 +49,19 @@ if (isset($_GET['id'])){
                         <table class="table">
                             <tr>
                                 <td>Best Game</td>
-                                <td><?echo $bestGame->getNumThrows()?> throws</td>
+                                <td><?php echo $bestGame->getNumThrows()?> throws</td>
                             </tr>
                             <tr>
                                 <td>Worst Game</td>
-                                <td><?echo $worstGame->getNumThrows()?> throws</td>
+                                <td><?php echo $worstGame->getNumThrows()?> throws</td>
                             </tr>
                             <tr>
                                 <td>Average Game</td>
-                                <td><?echo round($averageGame)?> throws</td>
+                                <td><?php echo round($averageGame)?> throws</td>
                             </tr>
                             <tr>
                                 <td>Average Last 10</td>
-                                <td><?echo round($averageLast10)?> throws</td>
+                                <td><?php echo round($averageLast10)?> throws</td>
                             </tr>
                         </table>
                     </div>
@@ -70,17 +70,17 @@ if (isset($_GET['id'])){
                 <div class="col-lg-8 col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <?echo $player->getName()?>'s Best Game
-                            <span class="pull-right">Finished <?echo date('d.m.Y k\l. H:i',strtotime($bestGame->getTimeFinished()));?></span>
+                            <?php echo $player->getName()?>'s Best Game
+                            <span class="pull-right">Finished <?php echo date('d.m.Y k\l. H:i',strtotime($bestGame->getTimeFinished()));?></span>
                         </div>
                         <div class="panel-body">
                             <table class="table game" id="bestGame">
                                 <thead>
                                     <tr>
                                         <th>Target</th>
-                                        <? for ($i = 1; $i <= 20; $i++){ ?>
-                                             <th class="text-center"><? echo $i ?></th>
-                                        <?}?>
+                                        <?php for ($i = 1; $i <= 20; $i++){ ?>
+                                             <th class="text-center"><?php echo $i ?></th>
+                                        <?php } ?>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -88,10 +88,10 @@ if (isset($_GET['id'])){
                                         <td>Throws</td>
                                     <!--<tr ng-if="vm.bestGame" game-stats header-content="'best game'" game="vm.bestGame" cumulative-throws="showCumulativeThrows"></tr>
                                     <tr game-stats header-content="'current game'" game="vm.game" cumulative-throws="showCumulativeThrows"></tr>-->
-                                    <?
+                                    <?php
                                         $throwList = getThrowList($bestGame);
                                         for ($i = 1; $i <= 20; $i++){
-                                            ?> <td class="text-center" id="target-<? echo $i?>"><? echo $throwList[$i] . "</td>";
+                                            ?> <td class="text-center" id="target-<?php echo $i?>"><?php echo $throwList[$i] . "</td>";
                                         }
                                     ?>
                                     </tr>
@@ -105,34 +105,34 @@ if (isset($_GET['id'])){
                             <div class="board">
                                 <a style="position: absolute; left: 0; right:0; top:0; bottom:0;" > </a>
                                 <div class="ring double">
-                                <? foreach ($dartboard as $i => $j){ ?>
-                                    <a class="piece piece-<?echo $i+1?>" ></a>
-                                <?}?>
+                                <?php foreach ($dartboard as $i => $j){ ?>
+                                    <a class="piece piece-<?php echo $i+1?>" ></a>
+                                <?php } ?>
                                 </div>
                                 <div class="ring outer">
-                                <? foreach ($dartboard as $i => $j){ ?>
-                                    <a class="piece piece-<?echo $i+1?>" ></a>
-                                <?}?>
+                                <?php foreach ($dartboard as $i => $j){ ?>
+                                    <a class="piece piece-<?php echo $i+1?>" ></a>
+                                <?php } ?>
                                 </div>
                                 <div class="ring triple">
-                                <? foreach ($dartboard as $i => $j){ ?>
-                                    <a class="piece piece-<?echo $i+1?>" ></a>
-                                <?}?>
+                                <?php foreach ($dartboard as $i => $j){ ?>
+                                    <a class="piece piece-<?php echo $i+1?>" ></a>
+                                <?php } ?>
                                 </div>
                                 <div class="ring inner">
-                                <? foreach ($dartboard as $i => $j){ ?>
-                                    <a class="piece piece-<?echo $i+1?>" ></a>
-                                <?}?>
+                                <?php foreach ($dartboard as $i => $j){ ?>
+                                    <a class="piece piece-<?php echo $i+1?>" ></a>
+                                <?php } ?>
                                 </div>
                                 <div class="numbers">
-                                <? foreach ($dartboard as $i => $j){ ?>
-                                     <a class="number number-<?echo $i+1?>" ><?echo $j?></a>
-                                <?}?>
+                                <?php foreach ($dartboard as $i => $j){ ?>
+                                     <a class="number number-<?php echo $i+1?>" ><?php echo $j?></a>
+                                <?php } ?>
                                 </div>
                                 <div class="stats">
-                                <? foreach ($hitRatio as $j){ ?>
-                                     <a class="stat stat-<?echo $j[0]?>" ><?echo round($j[1])?>%</a>
-                                <?}?>
+                                <?php foreach ($hitRatio as $j){ ?>
+                                     <a class="stat stat-<?php echo $j[0]?>" ><?php echo round($j[1])?>%</a>
+                                <?php } ?>
                                 </div>
                                 <a class="bull ring" ></a>
                                 <a class="red-bull ring" ></a>
@@ -168,7 +168,7 @@ if (isset($_GET['id'])){
 
         </section>
     </div>
-<? } 
+<?php } 
 include('../views/partials/footer.php');
 ?>
 <script src="/eiriknf/dart/scripts/highcharts.js"></script>

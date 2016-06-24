@@ -10,21 +10,21 @@ if(isset($_GET['id'])){
 	?>
 	 <div class="container body-content">
 		<section>
-		    <h3 class="player-name" style="margin: 40px 0"><img src="<?echo $game->getPlayer()->getImage()?>"><? echo $game->getPlayer()->getName() ?>'s Game</h3>
+		    <h3 class="player-name" style="margin: 40px 0"><img src="<?php echo $game->getPlayer()->getImage()?>"><?php echo $game->getPlayer()->getName() ?>'s Game</h3>
 			<div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Game finished in <b><?echo sizeof($game->getThrows())?></b> throws
-                            <span class="pull-right">Finished <?echo date('d.m.Y k\l. H:i',strtotime($game->getTimeFinished()));?></span>
+                            Game finished in <b><?php echo sizeof($game->getThrows())?></b> throws
+                            <span class="pull-right">Finished <?php echo date('d.m.Y k\l. H:i',strtotime($game->getTimeFinished()));?></span>
                         </div>
                         <div class="panel-body">
                             <table class="table game">
                                 <thead>
                                     <tr>
                                         <th>Target</th>
-                                        <? for ($i = 1; $i <= 20; $i++){ ?>
-                                             <th class="text-center"><? echo $i ?></th>
-                                        <?}?>
+                                        <?php for ($i = 1; $i <= 20; $i++){ ?>
+                                             <th class="text-center"><?php echo $i ?></th>
+                                        <?php } ?>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -32,7 +32,7 @@ if(isset($_GET['id'])){
                                         <td>Throws</td>
                                     <!--<tr ng-if="vm.bestGame" game-stats header-content="'best game'" game="vm.bestGame" cumulative-throws="showCumulativeThrows"></tr>
                                     <tr game-stats header-content="'current game'" game="vm.game" cumulative-throws="showCumulativeThrows"></tr>-->
-                                    <?
+                                    <?php
                                         $throwList = getThrowList($game);
                                         $bestThrowList = getThrowList($bestGame);
                                         $highchartArray = array();
@@ -41,12 +41,12 @@ if(isset($_GET['id'])){
                                         for ($i = 1; $i <= 20; $i++){
                                             $highchartArray[] = array($i, $throwList[$i]);
                                             $highchartArray2[] = array($i, $throwList[$i] + $highchartArray2[$i-2][1]);
-                                            ?> <td class="text-center" id="target-<? echo $i?>"><? echo $throwList[$i] . "</td>";
+                                            ?> <td class="text-center" id="target-<?php echo $i?>"><?php echo $throwList[$i] . "</td>";
                                         }
-                                        ?></tr><tr><td>Best Game</td> <?
+                                        ?></tr><tr><td>Best Game</td> <?php
                                         for ($i = 1; $i <= 20; $i++){
                                             $highchartArray3[] = array($i, $bestThrowList[$i] + $highchartArray3[$i-2][1]);
-                                            ?> <td class="text-center" id="target-<? echo $i?>"><? echo $bestThrowList[$i] . "</td>";
+                                            ?> <td class="text-center" id="target-<?php echo $i?>"><?php echo $bestThrowList[$i] . "</td>";
                                         }
                                     ?>
                                     </tr>
@@ -70,7 +70,7 @@ if(isset($_GET['id'])){
             </div>
 		</section>
 	</div>
-<?}
+<?php } 
 include('../../views/partials/footer.php'); ?>
 <script src="/eiriknf/dart/scripts/highcharts.js"></script>
 <script>
@@ -105,7 +105,7 @@ $( document ).ready(function() {
         },
         loading: true,
         series: [{
-            data: <?echo json_encode($highchartArray)?>
+            data: <?php echo json_encode($highchartArray)?>
         }]
     });
 
@@ -147,11 +147,11 @@ $( document ).ready(function() {
             },
             min: 0,
             plotLines: [{
-                value: <?echo $average?>,
+                value: <?php echo $average?>,
                 color: 'red',
                 width: 2,
                 label: {
-                    text: 'Average Game - <?echo $average?>',
+                    text: 'Average Game - <?php echo $average?>',
                     y: 16
                 },
                 verticalAlign: 'bottom',
@@ -161,10 +161,10 @@ $( document ).ready(function() {
         loading: true,
         series: [{
             name: 'This Game',
-            data: <?echo json_encode($highchartArray2)?>
+            data: <?php echo json_encode($highchartArray2)?>
         }, {
             name: 'Best Game',
-            data: <?echo json_encode($highchartArray3)?>
+            data: <?php echo json_encode($highchartArray3)?>
         }]
     });
 });

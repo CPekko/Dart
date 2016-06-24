@@ -13,7 +13,7 @@ if (isset($_GET['id'])){
 	if ($player->getPlayerId() && $game->getGameId()){
 		?>
 <h2 class="play-header">
-    <?echo $player->getName() ?>'s game<span>, started <span data-time="<?echo $game->getTimeStarted() ?>"></span></span>
+    <?php echo $player->getName() ?>'s game<span>, started <span data-time="<?php echo $game->getTimeStarted() ?>"></span></span>
 </h2>
  <div class="container body-content">
 	<section class="play">
@@ -26,29 +26,29 @@ if (isset($_GET['id'])){
                         <a class="btn btn-danger" onclick="registerNewThrow(0)" style="position: absolute; right:0; top:7px; margin-right: 10px; padding: 20px; z-index:2;">Miss</a>
                         <a onclick="registerNewThrow(0)" style="position: absolute; left: 0; right:0; top:0; bottom:0;" > </a>
                         <div class="ring double">
-				        <? foreach ($dartboard as $i => $j){ ?>
-                            <a onclick="registerNewThrow(<?echo $j?>, 2)" class="piece piece-<?echo $i+1?>" ></a>
-                        <?}?>
+				        <?php foreach ($dartboard as $i => $j){ ?>
+                            <a onclick="registerNewThrow(<?php echo $j?>, 2)" class="piece piece-<?php echo $i+1?>" ></a>
+                        <?php } ?>
                         </div>
                         <div class="ring outer">
-                        <? foreach ($dartboard as $i => $j){ ?>
-                            <a onclick="registerNewThrow(<?echo $j?>,1)" class="piece piece-<?echo $i+1?>" ></a>
-                        <?}?>
+                        <?php foreach ($dartboard as $i => $j){ ?>
+                            <a onclick="registerNewThrow(<?php echo $j?>,1)" class="piece piece-<?php echo $i+1?>" ></a>
+                        <?php } ?>
                         </div>
                         <div class="ring triple">
-                        <? foreach ($dartboard as $i => $j){ ?>
-                            <a onclick="registerNewThrow(<?echo $j?>,3)" class="piece piece-<?echo $i+1?>" ></a>
-                        <?}?>
+                        <?php foreach ($dartboard as $i => $j){ ?>
+                            <a onclick="registerNewThrow(<?php echo $j?>,3)" class="piece piece-<?php echo $i+1?>" ></a>
+                        <?php } ?>
                         </div>
                         <div class="ring inner">
-                        <? foreach ($dartboard as $i => $j){ ?>
-                            <a onclick="registerNewThrow(<?echo $j?>,1)" class="piece piece-<?echo $i+1?>" ></a>
-                        <?}?>
+                        <?php foreach ($dartboard as $i => $j){ ?>
+                            <a onclick="registerNewThrow(<?php echo $j?>,1)" class="piece piece-<?php echo $i+1?>" ></a>
+                        <?php } ?>
                         </div>
                         <div class="numbers">
-                        <? foreach ($dartboard as $i => $j){ ?>
-                             <a onclick="registerNewThrow(<?echo $j?>,1)" class="number number-<?echo $i+1?>" ><?echo $j?></a>
-                        <?}?>
+                        <?php foreach ($dartboard as $i => $j){ ?>
+                             <a onclick="registerNewThrow(<?php echo $j?>,1)" class="number number-<?php echo $i+1?>" ><?php echo $j?></a>
+                        <?php } ?>
                         </div>
                         <a onclick="registerNewThrow(25,1)" class="bull ring" ></a>
                         <a onclick="registerNewThrow(50,1)" class="red-bull ring" ></a>
@@ -65,7 +65,7 @@ if (isset($_GET['id'])){
                 </ul>
                 <div class="panel-footer text-center" id="buttonPanel">
                     <button class="btn btn-danger" onclick="undo()">Undo</button>
-                    <button class="btn btn-primary" onclick="saveRound(<?echo $game->getGameId()?>, this)">Save</button>
+                    <button class="btn btn-primary" onclick="saveRound(<?php echo $game->getGameId()?>, this)">Save</button>
                 </div> 
             </div>
         </div>
@@ -74,35 +74,35 @@ if (isset($_GET['id'])){
             <div class="panel panel-default" id="currentTarget">
                 <div class="panel-heading">Current Target</div>
                 <div class="panel-body">
-                    <h1 class="text-center text-info fix-margin"><span class="next-target" id="nextTarget"><? echo $game->getNextTarget() ?></span></h1>
+                    <h1 class="text-center text-info fix-margin"><span class="next-target" id="nextTarget"><?php echo $game->getNextTarget() ?></span></h1>
                 </div>
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">Throws on <span class="next-target" id="nextTargetText"><? echo $game->getNextTarget() ?></span></div>
+                <div class="panel-heading">Throws on <span class="next-target" id="nextTargetText"><?php echo $game->getNextTarget() ?></span></div>
                 <div class="panel-body">
-                    <h1 class="text-center text-info fix-margin" id="throwsOnTarget"><? echo $game->getThrowsOnTarget() ?></h1>
+                    <h1 class="text-center text-info fix-margin" id="throwsOnTarget"><?php echo $game->getThrowsOnTarget() ?></h1>
                 </div>
             </div>
 
             <div class="panel panel-default">
                 <div class="panel-heading">Total Throws</div>
                 <div class="panel-body">
-                    <h1 class="text-center text-info fix-margin" id="totalThrows"><? echo $game->getNumThrows()?></h1>
+                    <h1 class="text-center text-info fix-margin" id="totalThrows"><?php echo $game->getNumThrows()?></h1>
                 </div>
             </div>
 
             <div class="panel panel-default" id="estimatedTotalWrapper">
                 <div class="panel-heading">Estimated Total</div>
                 <div class="panel-body">
-                    <h1 class="text-center text-info fix-margin" id="estimatedTotal"><? echo round($game->getNumThrows()/($game-> getNextTarget() - 1) * 20)?></h1>
+                    <h1 class="text-center text-info fix-margin" id="estimatedTotal"><?php echo round($game->getNumThrows()/($game-> getNextTarget() - 1) * 20)?></h1>
                 </div>
             </div>
 
             <div class="panel panel-default">
                 <div class="panel-heading">Streak</div>
                 <div class="panel-body">
-                    <h1 class="text-center text-info fix-margin" id="streak"><? echo $game->getStreakCount() ?></h1>
+                    <h1 class="text-center text-info fix-margin" id="streak"><?php echo $game->getStreakCount() ?></h1>
                 </div>
             </div>
 
@@ -123,9 +123,9 @@ if (isset($_GET['id'])){
                         <thead>
                             <tr>
                                 <th>Target</th>
-                                <? for ($i = 1; $i <= 20; $i++){ ?>
-                                     <th class="text-center"><? echo $i ?></th>
-                                <?}?>
+                                <?php for ($i = 1; $i <= 20; $i++){ ?>
+                                     <th class="text-center"><?php echo $i ?></th>
+                                <?php } ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -133,10 +133,10 @@ if (isset($_GET['id'])){
                                 <td>Throws</td>
                             <!--<tr ng-if="vm.bestGame" game-stats header-content="'best game'" game="vm.bestGame" cumulative-throws="showCumulativeThrows"></tr>
                             <tr game-stats header-content="'current game'" game="vm.game" cumulative-throws="showCumulativeThrows"></tr>-->
-                            <?
+                            <?php
                                 $throwList = getThrowList($game);
                                 for ($i = 1; $i <= 20; $i++){
-                                    ?> <td class="text-center" id="target-<? echo $i?>"><? echo $throwList[$i] . "</td>";
+                                    ?> <td class="text-center" id="target-<?php echo $i?>"><?php echo $throwList[$i] . "</td>";
                                 }
                             ?>
                             </tr>
